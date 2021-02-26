@@ -7,6 +7,8 @@ public class StringCalculator {
         int sum = 0;
         if (numbers.isEmpty()) {
             return 0;
+        }else if(numbers.length() == 1){
+            return Integer.parseInt(numbers);
         }
         return sum;
     }

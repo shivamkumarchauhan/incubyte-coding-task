@@ -12,8 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class StringCalculatorTest {
 
     @Test
-    void add() {
+    void addZero() {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(0, stringCalculator.add(""));
+    }
+
+    @Test
+    void addOne() {
+        StringCalculator stringCalculator = new StringCalculator();
+        assertEquals(1, stringCalculator.add("1"));
     }
 }
