@@ -11,8 +11,13 @@ public class StringCalculator {
             return Integer.parseInt(numbers);
         } else if (numbers.length() == 3) {
             return Integer.parseInt(String.valueOf(numbers.charAt(0))) + Integer.parseInt(String.valueOf(numbers.charAt(2)));
-        }
+        }else{
+            String[] arrayOfNumbers = numbers.split(",");
+            for (String arrayOfNumber : arrayOfNumbers) {
+                sum += Integer.parseInt(arrayOfNumber);
+            }
 
-        return sum;
+            return sum;
+        }
     }
 }
