@@ -12,6 +12,9 @@ public class StringCalculator {
         } else if (numbers.length() == 3) {
             return Integer.parseInt(String.valueOf(numbers.charAt(0))) + Integer.parseInt(String.valueOf(numbers.charAt(2)));
         }else{
+            if (numbers.contains("\n")){
+                numbers = numbers.replace("\n",",");
+            }
             String[] arrayOfNumbers = numbers.split(",");
             for (String arrayOfNumber : arrayOfNumbers) {
                 sum += Integer.parseInt(arrayOfNumber);
