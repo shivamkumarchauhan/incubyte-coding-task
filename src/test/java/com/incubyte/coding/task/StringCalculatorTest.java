@@ -11,31 +11,37 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = {StringCalculator.class})
 class StringCalculatorTest {
 
-    private static StringCalculator stringCalculator;
-
     @Test
     public void addZero() {
-        stringCalculator = new StringCalculator();
-        assertEquals(0, stringCalculator.add(""));
+        assertEquals(0, StringCalculator.add(""));
     }
 
     @Test
     void addOne() {
-        stringCalculator = new StringCalculator();
-        assertEquals(1, stringCalculator.add("1"));
+        assertEquals(1, StringCalculator.add("1"));
     }
 
     @Test
     void addTwo() {
-        stringCalculator = new StringCalculator();
-        assertEquals(3, stringCalculator.add("1,2"));
+        assertEquals(3, StringCalculator.add("1,2"));
     }
 
     @Test
     void addAnyNumber() {
-        stringCalculator = new StringCalculator();
-        assertEquals(15, stringCalculator.add("1,2,5,7"));
-        assertEquals(6, stringCalculator.add("1\n2,3"));
-        assertEquals(3, stringCalculator.add("//;\n1;2"));
+        assertEquals(15, StringCalculator.add("1,2,5,7"));
+        assertEquals(6, StringCalculator.add("1\n2,3"));
+        assertEquals(3, StringCalculator.add("//;\n1;2"));
+    }
+
+    @Test
+    public final void negativeNumber() {
+        RuntimeException exception = null;
+        try {
+            StringCalculator.add("3,-6,15,-18,46,33");
+        } catch (RuntimeException e) {
+            exception = e;
+        }
+        assertNotNull(exception);
+        assertEquals("negatives not allowed : -6", exception.getMessage());
     }
 }

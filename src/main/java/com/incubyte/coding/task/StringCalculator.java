@@ -32,6 +32,9 @@ public class StringCalculator {
         int sum = 0;
         String[] arrayOfNumbers = numbers.split(del);
         for (String arrayOfNumber : arrayOfNumbers) {
+            if(Integer.parseInt(arrayOfNumber) < 0){
+                throw new RuntimeException("negatives not allowed : " + arrayOfNumber);
+            }
             sum += Integer.parseInt(arrayOfNumber);
         }
 
