@@ -34,14 +34,14 @@ class StringCalculatorTest {
     }
 
     @Test
-    public final void negativeNumber() {
+    public final void negativeNumbersList() {
         RuntimeException exception = null;
         try {
-            StringCalculator.add("3,-6,15,-18,46,33");
+            StringCalculator.add("-5,-15,18");
         } catch (RuntimeException e) {
             exception = e;
         }
         assertNotNull(exception);
-        assertEquals("negatives not allowed : -6", exception.getMessage());
+        assertEquals("Negatives not allowed : [-5, -15]", exception.getMessage());
     }
 }

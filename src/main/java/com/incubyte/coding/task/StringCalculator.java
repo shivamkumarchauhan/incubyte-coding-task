@@ -1,5 +1,7 @@
 package com.incubyte.coding.task;
 
+import java.util.ArrayList;
+
 public class StringCalculator {
 
     public static int add(String numbers) {
@@ -31,11 +33,16 @@ public class StringCalculator {
 
         int sum = 0;
         String[] arrayOfNumbers = numbers.split(del);
+        ArrayList<String> negativeNumbersList = new ArrayList<>();
         for (String arrayOfNumber : arrayOfNumbers) {
             if(Integer.parseInt(arrayOfNumber) < 0){
-                throw new RuntimeException("negatives not allowed : " + arrayOfNumber);
+                negativeNumbersList.add(arrayOfNumber);
             }
             sum += Integer.parseInt(arrayOfNumber);
+        }
+
+        if (negativeNumbersList.size() > 0) {
+            throw new RuntimeException("Negatives not allowed : " + negativeNumbersList);
         }
 
         return sum;
