@@ -36,5 +36,6 @@ class StringCalculatorTest {
         stringCalculator = new StringCalculator();
         assertEquals(15, stringCalculator.add("1,2,5,7"));
         assertEquals(6, stringCalculator.add("1\n2,3"));
+        assertEquals(3, stringCalculator.add("//;\n1;2"));
     }
 }
